@@ -6,6 +6,9 @@ services:
     build: .
     ports:
       - 443:8080
+    environment:
+      - TYK_GW_SLAVEOPTIONS_CONNECTIONSTRING=5.tcp.eu.ngrok.io:17811
+      - TYK_GW_SLAVEOPTIONS_APIKEY=3066d1a5c40e4beb5275e8cf8b01c39b
     mem_reservation: 1024M
 
   redis:
