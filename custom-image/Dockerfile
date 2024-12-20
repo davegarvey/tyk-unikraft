@@ -1,6 +1,6 @@
-FROM --platform=linux/x86_64 golang:1.21.3-bookworm AS build
+FROM --platform=linux/x86_64 golang:1.22.6-bookworm AS build
 
-ARG TYK_VERSION=5.4.0
+ARG TYK_VERSION=5.6.1
 
 WORKDIR /tyk
 
