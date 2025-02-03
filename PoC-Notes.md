@@ -54,3 +54,24 @@ This is the standard deployment, as per Unikraft's Tyk example, on which the oth
 ```shell
 kraft cloud compose up --file ./default/compose.yaml
 ```
+
+## Environment Variables
+
+To use Docker environment variables, add them to the relevant compose manifest. Values can be set via `.env` files.
+
+For example, to set the gateway log level, add the `TYK_GW_LOGLEVEL` environment variable to the `environment` section of the `compose.yaml` file, and set the value to `${LOG_LEVEL}`:
+
+```yaml
+    environment:
+      - TYK_GW_LOGLEVEL=${LOG_LEVEL}
+```
+
+This instructs Docker to set the environment variable in the container using the Docker environment varaible `LOG_LEVEL`.
+
+Then, in the `.env` file, define the value of `LOG_LEVEL`:
+
+```shell
+LOG_LEVEL=debug
+```
+
+This results in the container containing the environment variable `TYK_GW_LOGLEVEL` set to `debug`.
